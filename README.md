@@ -1,2 +1,1 @@
 # CodeTemple
-secrets.py
