@@ -97,8 +97,13 @@ class ParkingGarage():
         else:
             print("There are no cars in the parking garage!")
         pass
-
+run_program = True
 garage_1 = ParkingGarage()
-garage_1.takeTicket()
-garage_1.payForParking()
-garage_1.leaveGarage()
+while run_program:
+
+    garage_1.takeTicket()
+    garage_1.payForParking()
+    garage_1.leaveGarage()
+    ui = input ("Would you like to end the program? Y/N ")
+    if ui == "Y":
+        run_program = False
