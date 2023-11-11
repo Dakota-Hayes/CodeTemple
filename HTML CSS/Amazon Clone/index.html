@@ -4,28 +4,37 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
-        <title>Coding Fresh</title>
+        <title>Amazon</title>
     </head>
     <body>
-        <form id="login-form">
-            <h1 id="title">Sign In</h1>
-            <label id="label">Email (phone or mobile accounts)</label><br>
-            <input type="text" id="text-box" placeholder="Enter Email"><br>
-            <label id="label">Password</label>
-            <a href=""><label id="label">Forgot Password</label></a><br>
-            <input type="text" id="text-box" placeholder="Enter Email"><br>
-            <button id="continue-button">Continue</button><br>
-            <a href="">Need Help?</a><br>
-        </form>
-        <form id="new-login-form">
-            <h4 id="sub-title">New To Amazon?</h4><br>
-            <button id="create-button">Create Your Amazon Account</button><br>
-        </form>
+        <div class="login-body" id="login-body-class">
+            <form id="login-form">
+                <p id="title">Sign In</p>
+                <label id="label">Email (phone or mobile accounts)</label><br>
+                <input type="text" id="text-box" placeholder="Enter Email"><br>
+                <br>
+                <label id="label">Password</label>
+                <a href="" id="forgot-password-link"><label id="label">Forgot Password</label></a><br>
+                <input type="text" id="text-box" placeholder="Enter Email"><br>
+                <br>
+                <button id="continue-button">Continue</button><br>
+                <br>
+                <a href="" id="need-help-link"> > Need Help?</a><br>
+            </form>
+            <form id="new-login-form">
+                <p id="dash-1" style="display:inline"></p>
+                <p id="sub-title" style="display:inline">New To Amazon?</p>
+                <p id="dash-2" style="display:inline"></p>
+                <br>            
+                <button id="create-button">Create Your Amazon Account</button><br>
+            </form>
+        </div>
     </body>
     <footer>
-        <a href="" id="footer-link">Conditions of use</a>
-        <a href="" id="footer-link">Privacy Policy</a>
-        <a href="" id="footer-link">Help</a><br>
-        <p id="copyright">1996-2020, Amazon.com, inc or it's affiliates</p>
+        <a href="" id="footer-link" style="display:inline">Conditions of use</a>
+        <a href="" id="footer-link" style="display:inline">Privacy Policy</a>
+        <a href="" id="footer-link" style="display:inline">Help</a>
+        <br>
+        <p id="copyright">©1996-2020, Amazon.com, inc or it's affiliates</p>
     </footer>
 </html>
