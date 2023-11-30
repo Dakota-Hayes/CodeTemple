@@ -1,0 +1,99 @@
+-- First query, we will select all the records from the actor table
+select * from ACTOR
+
+-- Query for first_name and last_name in the actor table
+select FIRST_NAME,LAST_NAME
+from ACTOR;
+
+-- Query for a first_name that equals Nick using the WHERE clause
+select FIRST_NAME,LAST_NAME
+from actor
+where FIRST_NAME like 'Nick';
+
+-- Query for all first_name data that starts with a J using LIKE WHERE clasuse and a wildcard
+select FIRST_NAME,ACTOR_ID
+from actor 
+where FIRST_NAME like 'J%'
+
+-- Query for all first_name data that starts with a K and has 2 letters after the K again using LIKe and WHERE clauses and the the underscore
+select FIRST_NAME, ACTOR_ID from ACTOR where FIRST_NAME like 'K__';
+
+-- QUERY FOR ALL FIRST_NAME DATA THE STARTS WITH A K AND ENDS WITH A TH. WE WILL USE THE LIKE AND WHERE CLAUSES USING BOTH THE WILDCARD AND THE UNDERSCORE
+select FIRST_NAME, LAST_NAME,actor_id
+from ACTOR
+where FIRST_NAME like 'K__%th'
+
+-- COMPARING OPERATORS >,<,>=,<=,<>
+-- EXPLORE DATA WITH SELECT ALL QUERY SO THAT WE CAN CHANGE INTO A NEW TABLE
+select * from PAYMENT
+
+-- QUERY FOR DATA THAT SHOWS FOR CUSTOMERS THAT PAID FOR AN AMOUNT GREATER THAN $2
+select CUSTOMER_ID, AMOUNT
+from PAYMENT
+where amount > 2.00;
+
+-- QUERY FOR DATA THAT SHOWS FOR CUSTOMERS THAT PAID FOR AN AMOUNT LESS THAN $7.99
+select CUSTOMER_ID, AMOUNT
+from PAYMENT
+where amount < 7.99;
+
+-- QUERY FOR DATA THAT SHOWS FOR CUSTOMERS THAT PAID FOR AN AMOUNT LESS THAN OR EQUAL TO $10
+select CUSTOMER_ID, AMOUNT
+from PAYMENT
+where amount <= 10.00;
+
+-- QUERY FOR DATA THAT SHOWS FOR CUSTOMERS THAT PAID FOR AN AMOUNT GREATER THAN OR EQUAL TO $10
+select CUSTOMER_ID, AMOUNT
+from PAYMENT
+where amount >= 10.00;
+
+-- QUERY FOR DATA THAT SHOWS FOR CUSTOMERS THAT PAID FOR AN AMOUNTNOT EQUAL TO $0
+select CUSTOMER_ID, AMOUNT
+from PAYMENT
+where amount <> 0.00
+order by AMOUNT desc;
+
+-- SQL AGGREGATE FUNCTIONS
+-- SUM, AVG, COUNT, MIN, MAX
+-- QUERY TO DISPLAY THE SUM OF THE AMOUNTS PAID THAT ARE GREATER THAN 5.99
+select SUM(AMOUNT)
+from payment
+where AMOUNT > 5.99;
+
+-- QUERY TO DISPLAY THE AVERAGE AMOUNTS PAID GREATER THAN 5.99
+select AVG(AMOUNT)
+from PAYMENT
+where AMOUNT > 5.99;
+
+-- QUERY TO DISPLAY THE COUNT OF AMOUNTS PAID GREATER THAN 5.99
+select COUNT(AMOUNT)
+from PAYMENT
+where AMOUNT > 5.99;
+
+-- QUERY TO DISPLAY THE DISTINCT AMOUNTS PAID GREATER THAN 5.99
+select COUNT(distinct AMOUNT)
+from PAYMENT
+where AMOUNT > 5.99;
+
+-- QUERY TO DISPLAY MIN AMOUNT GREATER THAN 7.99
+select MIN(AMOUNT) as MIN_NUM_PAYMENTS
+from payment
+where AMOUNT > 7.99
+
+
+-- QUERY TO DISPLAY MAX AMOUNT GREATER THAN 7.99
+select MAX(AMOUNT) as MIN_NUM_PAYMENTS
+from payment
+where AMOUNT > 7.99
+
+-- DEMO OF GROUPBY
+select AMOUNT, COUNT(AMOUNT)
+from payment
+group by amount 
+order by AMOUNT
+
+-- QUERY TO DISPLAY CUSTOMER IDS WITH THE SUMMED AMOUNTS FOR EACH CUSTOMER ID
+select CUSTOMER_ID, SUM(amount)
+from PAYMENT
+group by customer_id
+order by CUSTOMER_ID desc;
