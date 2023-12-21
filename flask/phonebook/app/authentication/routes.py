@@ -25,10 +25,18 @@ def signup():
 
 
             flash(f'You have successfully created a user account {email}', 'User-created')
-            return redirect(url_for('site.home'))
+            logged_user = User.query.filter(User.email == email).first()
+            if logged_user and check_password_hash(logged_user.password, password):
+                login_user(logged_user)
+                flash('You were successful in your initiation. Congratulations, and welcome to the Jedi Knights', 'auth-sucess')
+                return redirect(url_for('site.profile'))
     except:
         raise Exception('Invalid form data: Please check your form')
     return render_template('sign_up.html', form=form)
+
+
+
+
 
 @auth.route('/signin', methods = ['GET', 'POST'])
 def signin():
@@ -43,10 +51,10 @@ def signin():
             logged_user = User.query.filter(User.email == email).first()
             if logged_user and check_password_hash(logged_user.password, password):
                 login_user(logged_user)
-                flash('You were successful in your initiation. Congratulations, and welcome to the Jedi Knights', 'auth-success')
+                flash('You were successful in your initiation. Congratulations, and welcome to the Jedi Knights', 'auth-sucess')
                 return redirect(url_for('site.profile'))
             else:
-                flash('You do not have access to this content.', 'auth-failed')
+                flash('You have failed in your attempt to access this content', 'auth-failed')
                 return redirect(url_for('auth.signin'))
     except:
         raise Exception('Invalid Form Data: Please Check your Form')
